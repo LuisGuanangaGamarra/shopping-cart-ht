@@ -1,8 +1,9 @@
-import { Product } from "@/Product/types/product";
 import { Card, ListGroup } from "react-bootstrap";
 
+import { ProductType } from "@/commons/types/productType";
+
 type BestCombinationProps = {
-    selectedProducts: Product[];
+    selectedProducts: ProductType[];
     total: number;
     budget: number;
 };

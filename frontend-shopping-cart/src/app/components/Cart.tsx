@@ -1,8 +1,11 @@
 "use client";
 
 import { useMemo } from 'react';
-import { useCart } from '../../Cart/context/CartContext';
+
 import { ListGroup } from 'react-bootstrap';
+
+import { useCart } from '@/commons/Providers/CartProvider/CartProvider';
+
 
 const Cart = () => {
     const { cart } = useCart();

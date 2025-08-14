@@ -1,8 +1,8 @@
-import { Product } from "@/Product/types/product";
+import { ProductType } from "@/commons/types/productType";
 
-export const findBestCombination = (products: Product[], budget: number): Product[] => {
+export const findBestCombination = (products: ProductType[], budget: number): ProductType[] => {
     const n = products.length;
-    const dp: Product[][][] = Array.from({ length: n + 1 }, () =>
+    const dp: ProductType[][][] = Array.from({ length: n + 1 }, () =>
         Array.from({ length: budget + 1 }, () => [])
     );
 

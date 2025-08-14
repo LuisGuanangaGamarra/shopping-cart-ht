@@ -1,7 +1,7 @@
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ReactNode } from "react";
-import ServerProviders from "./components/ServerProviders";
+import ServerProviders from "@/commons/Providers/ServerProviders";
 
 export const metadata = {
     title: "Mi Tienda",

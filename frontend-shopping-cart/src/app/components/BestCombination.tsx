@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Product } from "@/Product/types/product";
-import { useCart } from '../../Cart/context/CartContext';
-import { findBestCombination } from "@/utils/findBestCombination";
+
 import { Container, Form, Button } from "react-bootstrap";
+
+import { ProductType } from "@/commons/types/productType";
+import { useCart } from '@/commons/Providers/CartProvider/CartProvider';
+import { findBestCombination } from "@/utils/findBestCombination";
 import BestCombinationList from "./BestCombinationList";
 
 export const BestCombination = () => {
-    const [selectedProducts, setSelectedProducts] = useState<Product[]>([])
+    const [selectedProducts, setSelectedProducts] = useState<ProductType[]>([])
     const [budget, setBudget] = useState<number>(0);
     const { products } = useCart();
 

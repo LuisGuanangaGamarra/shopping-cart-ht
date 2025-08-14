@@ -1,13 +1,15 @@
 "use client";
 
 import { createContext, useContext, ReactNode } from 'react';
+
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import type { Product } from '../../Product/types/product';
-import { CartContextType } from '../types/CartContextType';
-import { addProductToCart, getCart, getProducts } from '../../services/api';
+
+import type { ProductType } from '../../types/productType';
+import { CartProviderTypes } from './types/CartProviderTypes';
+import { addProductToCart, getCart, getProducts } from '../../../services/api';
 
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+const CartContext = createContext<CartProviderTypes | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     const queryClient = useQueryClient();
@@ -34,7 +36,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             value={{
                 cart,
                 products,
-                addToCart: (product: Product) => addMutation.mutate(product)
+                addToCart: (product: ProductType) => addMutation.mutate(product)
             }}
         >
             {children}
@@ -44,6 +46,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
 export const useCart = () => {
     const context = useContext(CartContext);
-    if (!context) throw new Error('useCart must be used within a CartProvider');
+    if (!context) throw new Error('se tiene que usar el CartProvider');
     return context;
 };

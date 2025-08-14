@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import { CartProvider } from "../../Cart/context/CartContext";
+import { CartProvider } from "./CartProvider/CartProvider";
 import {
     HydrationBoundary,
     QueryClient,
@@ -9,7 +9,7 @@ import {
     type DehydratedState,
 } from "@tanstack/react-query";
 
-export default function Providers({
+export default function ClientProviders({
                                       children,
                                       dehydratedState,
                                   }: {

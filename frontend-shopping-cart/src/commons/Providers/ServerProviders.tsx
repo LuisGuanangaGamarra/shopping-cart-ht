@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
-import Providers from "./Providers";
+import ClientProviders from "./ClientProviders";
 import { getProducts, getCart } from "@/services/api";
 
 export default async function ServerProviders({ children }: { children: ReactNode }) {
@@ -18,5 +18,5 @@ export default async function ServerProviders({ children }: { children: ReactNod
 
     const dehydratedState = dehydrate(queryClient);
 
-    return <Providers dehydratedState={dehydratedState}>{children}</Providers>;
+    return <ClientProviders dehydratedState={dehydratedState}>{children}</ClientProviders>;
 }

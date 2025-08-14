@@ -1,7 +1,8 @@
 "use client";
 
-import { useCart } from '../../Cart/context/CartContext';
 import { Button, Card, Col, Row } from 'react-bootstrap';
+
+import { useCart } from '@/commons/Providers/CartProvider/CartProvider';
 
 const ProductList = () => {
     const { products, addToCart } = useCart();
