@@ -1,10 +1,15 @@
 "use client";
 
+import { useMemo } from 'react';
 import { useCart } from '../../Cart/context/CartContext';
 import { ListGroup } from 'react-bootstrap';
 
 const Cart = () => {
     const { cart } = useCart();
+    const total = useMemo(
+        () => cart.reduce((sum, p) => sum + p.price, 0),
+        [cart]
+    );
 
     return (
         <div>
@@ -16,7 +21,7 @@ const Cart = () => {
                     </ListGroup.Item>
                 ))}
             </ListGroup>
-            <p className="mt-2">Total: ${cart.reduce((sum, p) => sum + p.price, 0)}</p>
+            <p className="mt-2">Total: ${total}</p>
         </div>
     );
 };
