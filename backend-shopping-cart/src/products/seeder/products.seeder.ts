@@ -1,6 +1,8 @@
+import { Repository } from 'typeorm';
+
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+
 import { ProductEntity } from '../entities/product.entity';
 import { PRODUCTS_MOCK } from '../mocks/products.mock';
 
@@ -17,6 +19,6 @@ export class ProductsSeeder implements OnModuleInit {
     if (cnt > 0) return;
 
     await this.productsRepository.save(PRODUCTS_MOCK);
-    this.logger.log('Products seeded successfully');
+    this.logger.log('Products seeded is ok');
   }
 }

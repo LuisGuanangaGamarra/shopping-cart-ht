@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+
 import { CartEntity } from '../../cart/entities/cart.entity';
 import { ProductEntity } from '../../products/entities/product.entity';
 

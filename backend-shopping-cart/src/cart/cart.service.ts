@@ -38,12 +38,12 @@ export class CartService {
       );
     }
 
-    const newItem = new CartProductEntity();
-    newItem.product = product;
+    const cartProductEntity = new CartProductEntity();
+    cartProductEntity.product = product;
 
-    newItem.cart = cart;
+    cartProductEntity.cart = cart;
 
-    cart.items.push(newItem);
+    cart.items.push(cartProductEntity);
 
     await this.cartRepository.save(cart);
 

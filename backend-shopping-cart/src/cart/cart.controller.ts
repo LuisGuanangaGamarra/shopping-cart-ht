@@ -10,8 +10,7 @@ import {
 import { plainToInstance } from 'class-transformer';
 
 import { CartService } from './cart.service';
-
-import { AddProductsDto } from './dto/addProducts.dto';
+import { AddProductsToCartRequestDto } from './dto/addProductsToCartRequest.dto';
 import { CartResponseDto } from './dto/CartResponse.dto';
 import { JsonOnlyGuard } from '../commons/guards/json-only.guard';
 
@@ -30,7 +29,7 @@ export class CartController {
 
   @Post()
   @UseGuards(JsonOnlyGuard)
-  async addProductToCart(@Body() addProductsDto: AddProductsDto) {
+  async addProductToCart(@Body() addProductsDto: AddProductsToCartRequestDto) {
     const cart = await this.cartService.saveCart(addProductsDto.id_product);
     if (!cart)
       throw new BadRequestException(

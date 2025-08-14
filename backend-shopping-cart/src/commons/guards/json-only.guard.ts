@@ -1,10 +1,11 @@
+import { Request } from 'express';
+
 import {
   CanActivate,
   ExecutionContext,
   Injectable,
   UnsupportedMediaTypeException,
 } from '@nestjs/common';
-import { Request } from 'express';
 
 @Injectable()
 export class JsonOnlyGuard implements CanActivate {
@@ -14,7 +15,7 @@ export class JsonOnlyGuard implements CanActivate {
 
     if (!contentType || !contentType.includes('application/json')) {
       throw new UnsupportedMediaTypeException(
-        'Only application/json requests are allowed',
+        'solo peticiones con contenido de tipo application/json son permitidas',
       );
     }
 
