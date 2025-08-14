@@ -1,0 +1,33 @@
+import { Product } from '../Product/types/product';
+import { CartApiRequestDTO, CartApiResponseDTO } from './types';
+import { transformCartApiResponse } from "@/services/product.transform";
+
+const API_URL = 'http://localhost:3001';
+
+export const getProducts = async (): Promise<Product[]> => {
+    const res = await fetch(`${API_URL}/products`);
+    if (!res.ok) throw new Error('Error al obtener productos');
+    const data: Product[] = await res.json();
+    return data;
+};
+
+export const getCart = async (): Promise<Product[]> => {
+    const res = await fetch(`${API_URL}/cart`);
+    if (!res.ok) throw new Error('Error al obtener el carrito');
+    const data: CartApiResponseDTO = await res.json();
+    return transformCartApiResponse(data);
+};
+
+export const addProductToCart = async (product: Product): Promise<Product[]> => {
+    const productApiRequest: CartApiRequestDTO = {
+        id_product: product.id,
+    };
+
+    const res = await fetch(`${API_URL}/cart`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(productApiRequest),
+    });
+    const data: CartApiResponseDTO = await res.json();
+    return transformCartApiResponse(data);
+};
