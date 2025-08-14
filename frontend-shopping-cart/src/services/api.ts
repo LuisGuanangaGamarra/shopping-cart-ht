@@ -2,7 +2,7 @@ import { ProductType } from '@/commons/types/productType';
 import { CartApiRequestDTO, CartApiResponseDTO } from './types';
 import { transformCartApiResponse } from "@/services/cartApiResponse.transform";
 
-const API_URL = 'http://localhost:3001';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export const getProducts = async (): Promise<ProductType[]> => {
     const res = await fetch(`${API_URL}/products`);
