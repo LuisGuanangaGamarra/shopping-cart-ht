@@ -6,6 +6,19 @@ services:
     container_name: shopping_cart_api
     image: shopping_cart_api_image
     ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - app-net
+
+  front:
+    build:
+      context: ./frontend-shopping-cart-ht
+      dockerfile: Dockerfile
+    container_name: shopping_cart_front
+    image: shopping_cart_front_image
+    ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
