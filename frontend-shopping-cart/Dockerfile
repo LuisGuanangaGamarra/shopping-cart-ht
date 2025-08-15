@@ -10,6 +10,8 @@ RUN npm ci
 
 
 FROM base AS builder
+ARG ARG_API_URL=''
+ENV NEXT_PUBLIC_API_URL=${ARG_API_URL}
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules
@@ -18,6 +20,7 @@ RUN npm run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
+
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV HOSTNAME=0.0.0.0

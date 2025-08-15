@@ -5,11 +5,10 @@ import { ProductType } from "@/commons/types/productType";
 type BestCombinationProps = {
     selectedProducts: ProductType[];
     total: number;
-    budget: number;
 };
 
-export default function BestCombination({ selectedProducts, total, budget }: BestCombinationProps) {
-    if (selectedProducts.length === 0 && budget<=0) return null;
+export default function BestCombination({ selectedProducts, total }: BestCombinationProps) {
+    if (selectedProducts.length === 0) return null;
 
     return (
         <Card className="mb-4">

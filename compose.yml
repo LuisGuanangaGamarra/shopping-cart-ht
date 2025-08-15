@@ -16,6 +16,8 @@ services:
     build:
       context: ./frontend-shopping-cart
       dockerfile: Dockerfile
+      args:
+        - ARG_API_URL=<url backend>
     container_name: shopping_cart_front
     image: shopping_cart_front_image
     ports:

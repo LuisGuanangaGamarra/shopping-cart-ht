@@ -45,7 +45,6 @@ export const BestCombination = () => {
             <BestCombinationList
                 selectedProducts={selectedProducts}
                 total={total}
-                budget={budget}
             />
         </Container>
     )

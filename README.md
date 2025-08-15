@@ -55,7 +55,7 @@ y colocar la url del backend en local en la variable NEXT_PUBLIC_API_URL
 ejemplo
 
 ```
-NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
 
@@ -78,23 +78,29 @@ http://localhost:3000
 ```bash
 cd backend-shopping-cart
 docker build -t shopping-cart-backend .
-docker run -p 3001:3001 shopping-cart-backend
+docker run --name=shopping_cart_api -d -p 3001:3001 shopping-cart-backend
 ```
 
 ### 2️⃣ Frontend
 ```bash
 cd frontend-shopping-cart
-docker build -t shopping-cart-frontend .
-docker run -p 3000:3000 shopping-cart-frontend
+docker build --build-arg ARG_API_URL=<url backend> -t shopping-cart-frontend .
+docker run --name=shopping_cart_front -d -p 3000:3000 shopping-cart-frontend
 ```
 
 ---
 
 ## ⚡ Ejecución con Docker Compose
 
+
 En la raíz del proyecto:
+abrir el archivo de compose.yml y setear la variable de extorno 
 ```bash
-docker compose up --build
+ARG_API_URL=<url backend>
+```
+luego en la terminal ejecutar el comando
+```bash
+docker compose up --build -d
 ```
 
 Esto levantará:
@@ -113,7 +119,7 @@ docker compose down --rmi all --volumes
 1. Abre Postman.
 2. Importa el archivo:
 ```
-postman_collection.json
+app shopping cart ht.postman_collection.json
 ```
 3. Selecciona el entorno correcto (local o Docker).
 4. Ejecuta las peticiones para probar el API.
@@ -125,6 +131,7 @@ postman_collection.json
 ### Backend
 ```bash
 npm run start         # Modo producción
+npm run build         # Construcción para producción
 npm run start:dev     # Modo desarrollo con recarga
 ```
 
@@ -134,9 +141,3 @@ npm run dev           # Desarrollo
 npm run build         # Construcción para producción
 npm run start         # Servir en producción
 ```
-
----
-
-## 📄 Licencia
-Este proyecto está bajo la licencia MIT.  
-Puedes usarlo, modificarlo y distribuirlo libremente.
