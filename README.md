@@ -3,7 +3,7 @@
 Aplicación de carrito de compras construida con **NestJS** (backend) y **Next.js** (frontend) ambos framework en TypeScript, comunicación vía API REST
 base de datos en memoria.
 
-el aplicativo permite mostrar una lista de productos predefinidos, un carrito de compras donde se puede agregar los productos
+el aplicativo permite mostrar una lista de productos predefinidos que podemos modificar en el [archivo semilla](backend-shopping-cart/src/products/mocks/products.mock.ts), un carrito de compras donde se puede agregar los productos
 y un calculador de productos basados en un presupuesto como se muestra en el video
 
 
