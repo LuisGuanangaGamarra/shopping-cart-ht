@@ -1,6 +1,11 @@
 # 🛒 Shopping Cart HT
 
-Aplicación de carrito de compras construida con **NestJS** (backend) y **Next.js** (frontend), con arquitectura modular y comunicación vía API REST.  
+Aplicación de carrito de compras construida con **NestJS** (backend) y **Next.js** (frontend), comunicación vía API REST.
+
+el aplicativo permite mostrar una lista de productos predefinidos, un carrito de compras donde se puede agregar los productos
+y un calculador de productos basados en un presupuesto
+
+
 Incluye configuración para ejecución local, en contenedores Docker y orquestación con Docker Compose.  
 También incluye una colección de **Postman** para probar los endpoints.
 
@@ -21,10 +26,11 @@ shopping-cart-ht/
 
 ## ⚙️ Requisitos previos
 
-Antes de comenzar asegúrate de tener instalado:
-
+Antes de comenzar asegúrate de tener instalado para ejecución de manera local solo necesitas:
 - [Node.js](https://nodejs.org/) >= 20.10.0
 - [npm](https://www.npmjs.com/) >= 10.2.3
+
+y si piensas usar contenedores deberias tener instalado:
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
