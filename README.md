@@ -26,7 +26,7 @@ shopping-cart-ht/
 
 ## ⚙️ Requisitos previos
 
-Antes de comenzar asegúrate de tener instalado para ejecución de manera local solo necesitas:
+Antes de comenzar asegúrate de tener instalado para ejecución de manera local:
 - [Node.js](https://nodejs.org/) >= 20.10.0
 - [npm](https://www.npmjs.com/) >= 10.2.3
 
